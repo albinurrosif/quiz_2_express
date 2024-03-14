@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Kapal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link" href="/kapal"> Kapal </a>
+            <a class="nav-link" href="/pemilik"> Pemilik </a>
+            <a class="nav-link" href="/dpi"> DPI </a>
+            <a class="nav-link" href="/alat_tangkap"> Alat Tangkap </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="container mt-5">
+      <h2>Form Kapal</h2>
+      <form action="/kapal/store" method="POST">
+        <div class="mb-3">
+          <label for="nama_kapal" class="form-label">Nama Kapal</label>
+          <input type="text" class="form-control" id="nama_kapal" name="nama_kapal" required />
+        </div>
+        <div class="mb-3">
+          <label for="id_pemilik" class="form-label">Pemilik</label>
+          <select class="form-control" id="id_pemilik" name="id_pemilik" required>
+            <option value="">Pilih Pemilik</option>
+            <% for (let i = 0; i < dataPemilik.length; i++) { %>
+            <option value="<%= dataPemilik[i].id_pemilik %>"><%= dataPemilik[i].nama_pemilik %></option>
+            <% } %>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="id_dpi" class="form-label">DPI</label>
+          <select class="form-control" id="id_dpi" name="id_dpi" required>
+            <option value="">Pilih DPI</option>
+            <% for (let i = 0; i < dataDpi.length; i++) { %>
+            <option value="<%= dataDpi[i].id_dpi %>"><%= dataDpi[i].nama_dpi %></option>
+            <% } %>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="id_alat_tangkap" class="form-label">Alat Tangkap</label>
+          <select class="form-control" id="id_alat_tangkap" name="id_alat_tangkap" required>
+            <option value="">Pilih Alat Tangkap</option>
+            <% for (let i = 0; i < dataAlatTangkap.length; i++) { %>
+            <option value="<%= dataAlatTangkap[i].id_alat_tangkap %>"><%= dataAlatTangkap[i].nama_alat_tangkap %></option>
+            <% } %>
+          </select>
+        </div>
+        <div class="mb-3">
+          <button type="submit" class="btn btn-sm btn-success">Simpan</button>
+        </div>
+      </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>

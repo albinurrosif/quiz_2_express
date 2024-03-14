@@ -4,7 +4,7 @@ class Model_kapal {
   static async getAll() {
     return new Promise((resolve, reject) => {
       connection.query(
-        'SELECT kapal.*, pemilik.nama_pemilik AS nama_pemilik, dpi.nama AS nama_dpi, alat_tangkap.nama_alat_tangkap AS nama_alat_tangkap FROM kapal JOIN pemilik ON kapal.id_pemilik = pemilik.id_pemilik JOIN dpi ON kapal.id_dpi = dpi.id_dpi JOIN alat_tangkap ON kapal.id_alat_tangkap = alat_tangkap.id_alat_tangkap',
+        'SELECT kapal.*, pemilik.nama AS nama_pemilik, dpi.nama AS nama_dpi, alat_tangkap.nama AS nama_alat_tangkap FROM kapal JOIN pemilik ON kapal.id_pemilik = pemilik.id_pemilik JOIN dpi ON kapal.id_dpi = dpi.id_dpi JOIN alat_tangkap ON kapal.id_alat_tangkap = alat_tangkap.id_alat_tangkap',
         (err, rows) => {
           if (err) {
             reject(err);

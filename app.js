@@ -4,15 +4,12 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var flash = require('express-flash');
-var session = require('express-session');
-
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var pemilikRouter = require('./routes/pemilik');
-var kapalRouter = require('./routes/kapal');
-var dpiRouter = require('./routes/dpi');
-var alat_tangkapRouter = require('./routes/alat_tangkap');
+var alat_tangkap_router = require('./routes/alat_tangkap');
+var dpi_router = require('./routes/dpi');
+var pemilik_router = require('./routes/pemilik');
+var kapal_router = require('./routes/kapal');
 
 var app = express();
 
@@ -26,28 +23,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(
-  session({
-    cookie: {
-      maxAge: 6000,
-    },
-    store: new session.MemoryStore(),
-    saveUninitialized: true,
-    resave: 'true',
-    secret: 'secret',
-  })
-);
-
-app.use(flash());
-
-app.use('/', indexRouter);
-app.use('/pemilik', pemilikRouter);
-app.use('/kapal', kapalRouter);
-app.use('/dpi', dpiRouter);
-app.use('/alat_tangkap', alat_tangkapRouter);
-
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/alat_tangkap', alat_tangkap_router);
+app.use('/dpi', dpi_router);
+app.use('/pemilik', pemilik_router);
+app.use('/kapal', kapal_router);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

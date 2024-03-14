@@ -30,10 +30,8 @@ router.post('/store', async function (req, res, next) {
       no_hp: req.body.no_hp,
     };
     await Model_pemilik.Store(data);
-    req.flash('success', 'berhasil mneyimpan data');
     res.redirect('/pemilik');
   } catch {
-    req.flash('error', 'terjadi kesalahan pada fungsi');
     res.redirect('/pemilik');
   }
 });

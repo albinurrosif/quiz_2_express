@@ -5,7 +5,7 @@ const e = require('method-override');
 const model_dpi = require('../model/model_dpi.js');
 
 router.get('/', async function (req, res, next) {
-  let rows = await model_dpi.getALL();
+  let rows = await model_dpi.getAll();
   res.render('dpi/index', {
     data: rows,
   });
@@ -54,7 +54,7 @@ router.post('/update/:id', async function (req, res, next) {
       nama_dpi,
       luas,
     };
-    await model_dpi.update(id, Data);
+    await model_dpi.Update(id, Data);
     req.flash('success', 'Berhasil memperbarui data!');
     res.redirect('/dpi');
   } catch {
@@ -64,7 +64,7 @@ router.post('/update/:id', async function (req, res, next) {
 
 router.get('/delete/:id', async function (req, res) {
   let id = req.params.id;
-  await model_dpi.delete(id);
+  await model_dpi.Delete(id);
 
   res.redirect('/dpi');
 });
