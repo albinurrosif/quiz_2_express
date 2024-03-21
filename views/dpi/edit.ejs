@@ -1,0 +1,18 @@
+<%- include("../partials/head.ejs") %>
+<div class="container">
+  <h1 class="text-center mb-5 mt-2">Edit DPI</h1>
+  <form action="/dpi/update/<%= id %>" method="POST">
+    <div class="mb-3">
+      <label for="nama" class="form-label">Nama DPI</label>
+      <input type="text" class="form-control" name="nama_dpi" value="<%= nama_dpi%>" required />
+    </div>
+    <div class="mb-3">
+      <label for="nama" class="form-label">Luas DPI</label>
+      <input type="text" class="form-control" name="luas" value="<%= luas%>" required />
+    </div>
+    <div class="mb-3">
+      <button type="submit" class="btn btn-sm btn-success">simpan</button>
+    </div>
+  </form>
+</div>
+<%- include("../partials/foot.ejs") %>

@@ -1,0 +1,14 @@
+<%- include("../partials/head.ejs") %>
+<div class="container">
+  <h1 class="text-center mb-5 mt-2">Edit Alat Tangkap</h1>
+  <form action="/alat_tangkap/update/<%= id %>" method="POST">
+    <div class="mb-3">
+      <label for="nama" class="form-label">Nama Alat Tangkap</label>
+      <input type="text" class="form-control" name="nama_alat_tangkap" value="<%= nama_alat_tangkap %>" required />
+    </div>
+    <div class="mb-3">
+      <button type="submit" class="btn btn-sm btn-success">simpan</button>
+    </div>
+  </form>
+</div>
+<%- include("../partials/foot.ejs") %>

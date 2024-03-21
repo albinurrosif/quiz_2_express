@@ -55,7 +55,7 @@ router.post('/update/:id', async function (req, res, next) {
       luas,
     };
     await model_dpi.Update(id, Data);
-    req.flash('success', 'Berhasil memperbarui data!');
+
     res.redirect('/dpi');
   } catch {
     res.redirect('/dpi');

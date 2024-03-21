@@ -1,0 +1,45 @@
+<%- include("../partials/head.ejs") %>
+<div class="container">
+  <h1 class="text-center mb-5 mt-2">Data Kapal</h1>
+  <form action="/kapal/update/<%= id %>" method="POST">
+    <div class="mb-3">
+      <label for="nama" class="form-label">Nama Kapal</label>
+      <input type="text" class="form-control" name="nama_kapal" value="<%= nama_kapal %>" required />
+    </div>
+    <div class="mb-3">
+      <label for="nama" class="form-label">nama pemilik</label>
+      <select class="form-select" aria-label="Pilih Tingkat Keahlian" name="id_pemilik" required>
+        <% for(var i=0; i < dataPemilik.length; i++){ %> <% if(dataPemilik[i].id_pemilik === id_pemilik){ %>
+        <option value="<%= dataPemilik[i].id_pemilik %>" selected><%= dataPemilik[i].nama_pemilik %></option>
+        <% } else { %>
+        <option value="<%= dataPemilik[i].id_pemilik %>"><%= dataPemilik[i].nama_pemilik %></option>
+        <% } %> <% } %>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="nama" class="form-label">nama dpi</label>
+      <select class="form-select" aria-label="Pilih Tingkat Keahlian" name="id_dpi" required>
+        <% for(var i=0; i < dataDpi.length; i++){ %> <% if(dataDpi[i].id_dpi === id_dpi){ %>
+        <option value="<%= dataDpi[i].id_dpi %>" selected><%= dataDpi[i].nama_dpi %></option>
+        <% } else { %>
+        <option value="<%= dataDpi[i].id_dpi %>"><%= dataDpi[i].nama_dpi %></option>
+        <% } %> <% } %>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="nama" class="form-label">Nama Alat Tangkap</label>
+      <select class="form-select" aria-label="Pilih Tingkat Keahlian" name="id_alat_tangkap" required>
+        <% for(var i=0; i < dataAlatTangkap.length; i++){ %> <% if(dataAlatTangkap[i].id_alat_tangkap === id_alat_tangkap){ %>
+        <option value="<%= dataAlatTangkap[i].id_alat_tangkap %>" selected><%= dataAlatTangkap[i].nama_alat_tangkap %></option>
+        <% } else { %>
+        <option value="<%= dataAlatTangkap[i].id_alat_tangkap %>"><%= dataAlatTangkap[i].nama_alat_tangkap %></option>
+        <% } %> <% } %>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <button type="submit" class="btn btn-sm btn-success">Simpan</button>
+    </div>
+  </form>
+</div>
+<%- include("../partials/foot.ejs") %>

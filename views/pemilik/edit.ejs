@@ -1,0 +1,22 @@
+<%- include("../partials/head.ejs") %>
+<div class="container">
+  <h1 class="text-center mb-5 mt-2">Edit Pemilik</h1>
+  <form action="/pemilik/update/<%= id %>" method="POST">
+    <div class="mb-3">
+      <label for="nama" class="form-label">Nama Pemilik</label>
+      <input type="text" class="form-control" name="nama_pemilik" value="<%= nama_pemilik%>" required />
+    </div>
+    <div class="mb-3">
+      <label for="nama" class="form-label">Alamat</label>
+      <input type="text" class="form-control" name="alamat" value="<%= alamat%>" required />
+    </div>
+    <div class="mb-3">
+      <label for="nama" class="form-label">Telepon</label>
+      <input type="text" class="form-control" name="no_hp" value="<%= no_hp%>" required />
+    </div>
+    <div class="mb-3">
+      <button type="submit" class="btn btn-sm btn-success">simpan</button>
+    </div>
+  </form>
+</div>
+<%- include("../partials/foot.ejs") %>

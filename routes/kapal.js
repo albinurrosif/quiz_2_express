@@ -6,7 +6,7 @@ const model_dpi = require('../model/model_dpi.js');
 const model_pemilik = require('../model/model_pemilik.js');
 
 router.get('/', async function (req, res, next) {
-  let rows = await model_dpi.getAll();
+  let rows = await model_kapal.getAll();
   res.render('kapal/index', {
     data: rows,
   });
@@ -87,11 +87,9 @@ router.post('/update/:id', async function (req, res, next) {
       nama_kapal: req.body.nama_kapal,
     };
     await model_kapal.Update(id, data);
-    req.flash('success', 'Kapal updated successfully');
     res.redirect('/kapal');
   } catch (error) {
     console.error(error);
-    req.flash('error', 'Failed to update kapal');
     res.redirect('/kapal');
   }
 });
@@ -100,11 +98,9 @@ router.get('/delete/:id', async function (req, res, next) {
   try {
     const id = req.params.id;
     await model_kapal.Delete(id);
-    req.flash('success', 'Kapal deleted successfully');
     res.redirect('/kapal');
   } catch (error) {
     console.error(error);
-    req.flash('error', 'Failed to delete kapal');
     res.redirect('/kapal');
   }
 });

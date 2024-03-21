@@ -50,7 +50,6 @@ router.post('/update/:id', async function (req, res, next) {
       nama_alat_tangkap,
     };
     await model_alat_tangkap.Update(id, Data);
-    req.flash('success', 'Berhasil memperbarui data!');
     res.redirect('/alat_tangkap');
   } catch {
     res.redirect('/alat_tangkap');
