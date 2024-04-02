@@ -36,15 +36,26 @@ router.post('/log', async (req, res) => {
       let cek = await bcrypt.compare(password, enkripsi);
       if (cek) {
         req.session.userId = Data[0].id_users;
-        res.redirect('/users');
+        if (Data[0].level_users == 1) {
+          req.flash('success', 'Berhasil login');
+          res.redirect('/superusers');
+        } else if (Data[0].level_users == 2) {
+          req.flash('success', 'Berhasil login');
+          res.redirect('/users');
+        } else {
+          res.redirect('/login');
+        }
       } else {
-        res.send('error');
+        req.flash('error', 'Email atau password salah');
+        res.redirect('/login');
       }
     } else {
-      res.send('cok');
+      req.flash('error', 'Akun tidak ditemukan');
+      res.redirect('/login');
     }
   } catch (err) {
-    res.send(err);
+    res.redirect('/login');
+    req.flash('error', 'Error pada fungsi');
   }
 });
 

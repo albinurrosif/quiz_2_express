@@ -1,23 +1,56 @@
-<%- include("../partials/head.ejs") %>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
 
-<div class="container mt-5">
-  <h2>Form pemilik</h2>
-  <form action="/pemilik/store" method="POST">
-    <div class="mb-3">
-      <label for="nama_pemilik" class="form-label">Nama Pemilik</label>
-      <input type="text" class="form-control" id="nama_pemilik" name="nama_pemilik" required />
+    <title>SB Admin 2 - Dashboard</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+
+    <!-- Custom styles for this template-->
+    <link href="/stylesheets/css/sb-admin-2.min.css" rel="stylesheet" />
+  </head>
+
+  <body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+      <%- include("../partials/sidebar.ejs") %>
+
+      <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+          <!-- Topbar -->
+          <%- include("../partials/nav.ejs") %>
+
+          <div class="container mt-5">
+            <h2>Form pemilik</h2>
+            <form action="/pemilik/store" method="POST">
+              <div class="mb-3">
+                <label for="nama_pemilik" class="form-label">Nama Pemilik</label>
+                <input type="text" class="form-control" id="nama_pemilik" name="nama_pemilik" required />
+              </div>
+              <div class="mb-3">
+                <label for="alamat" class="form-label">alamat</label>
+                <input type="text" class="form-control" id="alamat" name="alamat" required />
+              </div>
+              <div class="mb-3">
+                <label for="no_hp" class="form-label">Telepon</label>
+                <input type="number" class="form-control" id="no_hp" name="no_hp" required />
+              </div>
+              <div class="mb-3">
+                <button type="submit" class="btn btn-sm btn-success">Simpan</button>
+              </div>
+            </form>
+          </div>
+          <%- include("../partials/foot.ejs") %>
+        </div>
+      </div>
     </div>
-    <div class="mb-3">
-      <label for="alamat" class="form-label">alamat</label>
-      <input type="text" class="form-control" id="alamat" name="alamat" required />
-    </div>
-    <div class="mb-3">
-      <label for="no_hp" class="form-label">Telepon</label>
-      <input type="number" class="form-control" id="no_hp" name="no_hp" required />
-    </div>
-    <div class="mb-3">
-      <button type="submit" class="btn btn-sm btn-success">Simpan</button>
-    </div>
-  </form>
-</div>
-<%- include("../partials/foot.ejs") %>
+  </body>
+</html>
